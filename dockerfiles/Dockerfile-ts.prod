@@ -1,0 +1,11 @@
+FROM node:6.9
+
+COPY . /code
+
+WORKDIR /code
+
+RUN npm install yarn -g
+
+RUN yarn install --prod
+
+CMD ["yarn", "start-prod"]

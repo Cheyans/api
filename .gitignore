@@ -7,3 +7,8 @@ venv
 docs/build/
 config.py
 *.iml
+node_modules
+*.js
+ts-node
+.DS_Store
+.env
