@@ -2,12 +2,18 @@ import * as Knex from "knex";
 import * as Bookshelf from "bookshelf";
 import * as jsonApiParams from "bookshelf-jsonapi-params";
 
-class Database {
+export class Database {
+  private static instance: Database;
   public bookshelf: Bookshelf;
 
-  constructor() {
+  public static get Instance() {
+    return this.instance || (this.instance = new Database());
+  }
+
+  private constructor() {
     this.bookshelf = Bookshelf(Knex({
       client: "mysql",
+      debug: process.env.NODE_ENV === "development",
       connection: {
         host: process.env.DB_PORT_3306_TCP_ADDR,
         port: 3306,
@@ -21,8 +27,10 @@ class Database {
 
   private registerPlugins(): void {
     // this.bookshelf.plugin("registry");
-    this.bookshelf.plugin(jsonApiParams);
+    this.bookshelf.plugin(jsonApiParams, {
+      pagination: {
+        limit: 1000
+      }
+    });
   }
 }
-
-export const bookshelf = new Database().bookshelf;

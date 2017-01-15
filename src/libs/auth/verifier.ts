@@ -1,7 +1,7 @@
 import * as njwt from "njwt";
 import {Request, Response, NextFunction} from "express";
 import {ResponseErrors} from "../errors/errors";
-import {AuthedRequest} from "../../interfaces/authedRequest";
+import {RequestAuthed} from "../../interfaces/requestAuthed";
 import {Claims} from "../../interfaces/claims";
 import TokenExpired = ResponseErrors.TokenExpired;
 import UnauthorizedAccess = ResponseErrors.UnauthorizedAccess;
@@ -15,7 +15,7 @@ export function verifier(req: Request, res: Response, next: NextFunction) {
       if (err) {
         next(new TokenExpired());
       } else {
-        (<AuthedRequest> req).user = (<Claims> jwt.body.toJSON());
+        (<RequestAuthed> req).user = (<Claims> jwt.body.toJSON());
         next();
       }
     });

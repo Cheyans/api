@@ -1,7 +1,7 @@
 declare module "express-oauth-server" {
   import * as express from "express";
   import * as oauth2server from "oauth2-server";
-  import {Config} from "express-oauth-server-static/index";
+  import {Config} from "../express-oauth-server-static/index";
 
   class ExpressOAuthServer {
     public server: oauth2server.OAuth2Server;

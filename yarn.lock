@@ -282,11 +282,26 @@ bookshelf-jsonapi-params@beta:
     inflection "^1.10.0"
     lodash "4.13.1"
 
+bookshelf-modelbase@^2.10.3:
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/bookshelf-modelbase/-/bookshelf-modelbase-2.10.3.tgz#aabc4ae32cb3a24d6bca6b958a750d8b337cf757"
+  dependencies:
+    joi "^9.0.4"
+    lodash.difference "^4.4.0"
+    xtend "^4.0.1"
+
 bookshelf-page@0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/bookshelf-page/-/bookshelf-page-0.3.2.tgz#8be4cc15641bd338a3abf82d5d8732027121b531"
   dependencies:
     bluebird "^3.3.4"
+
+bookshelf-schema@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/bookshelf-schema/-/bookshelf-schema-0.3.0.tgz#0c93152d8abe213dc01a0dcfdd3cb15c63813830"
+  dependencies:
+    checkit "^0.7.0"
+    inflection "^1.8.0"
 
 bookshelf@^0.10.2:
   version "0.10.2"
@@ -379,6 +394,13 @@ chalk@~0.4.0:
     ansi-styles "~1.0.0"
     has-color "~0.1.0"
     strip-ansi "~0.1.0"
+
+checkit@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/checkit/-/checkit-0.7.0.tgz#14979abc93018346bfcfdcbabc19ab54c0bfd74a"
+  dependencies:
+    inherits "^2.0.1"
+    lodash "^4.0.0"
 
 chokidar@^1.4.3:
   version "1.6.1"
@@ -1012,6 +1034,10 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
+hoek@4.x.x:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.1.0.tgz#4a4557460f69842ed463aa00628cc26d2683afa7"
+
 homedir-polyfill@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
@@ -1054,7 +1080,7 @@ inflected@^1.1.6:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/inflected/-/inflected-1.1.7.tgz#c393df6e28472d0d77b3082ec3aa2091f4bc96f9"
 
-inflection@1.10.0, inflection@^1.10.0, inflection@^1.5.1:
+inflection@1.10.0, inflection@^1.10.0, inflection@^1.5.1, inflection@^1.8.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/inflection/-/inflection-1.10.0.tgz#5bffcb1197ad3e81050f8e17e21668087ee9eb2f"
 
@@ -1202,6 +1228,10 @@ isarray@1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
+isemail@2.x.x:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
+
 isexe@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-1.1.2.tgz#36f3e22e60750920f5e7241a476a8c6a42275ad0"
@@ -1216,11 +1246,25 @@ isstream@0.1.x, isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
+items@2.x.x:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/items/-/items-2.1.1.tgz#8bd16d9c83b19529de5aea321acaada78364a198"
+
 jodid25519@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/jodid25519/-/jodid25519-1.0.2.tgz#06d4912255093419477d425633606e0e90782967"
   dependencies:
     jsbn "~0.1.0"
+
+joi@^9.0.4:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-9.2.0.tgz#3385ac790192130cbe230e802ec02c9215bbfeda"
+  dependencies:
+    hoek "4.x.x"
+    isemail "2.x.x"
+    items "2.x.x"
+    moment "2.x.x"
+    topo "2.x.x"
 
 js-tokens@^2.0.0:
   version "2.0.0"
@@ -1362,6 +1406,10 @@ lodash.defaults@^3.1.2:
     lodash.assign "^3.0.0"
     lodash.restparam "^3.0.0"
 
+lodash.difference@^4.4.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
+
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -1390,7 +1438,7 @@ lodash@^3.3.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.13.1, lodash@^4.14.2, lodash@^4.16.3, lodash@^4.6.0:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.2, lodash@^4.16.3, lodash@^4.6.0:
   version "4.17.3"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.3.tgz#557ed7d2a9438cac5fd5a43043ca60cb455e01f7"
 
@@ -1481,6 +1529,10 @@ minimist@~1.1.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment@2.x.x:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
 ms@0.7.1:
   version "0.7.1"
@@ -1619,13 +1671,7 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-once@^1.3.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
-  dependencies:
-    wrappy "1"
-
-once@~1.3.0, once@~1.3.3:
+once@^1.3.0, once@~1.3.0, once@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/once/-/once-1.3.3.tgz#b2e261557ce4c314ec8304f3fa82663e4297ca20"
   dependencies:
@@ -2176,6 +2222,12 @@ timed-out@^3.0.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.3.tgz#95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
 
+topo@2.x.x:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/topo/-/topo-2.0.2.tgz#cd5615752539057c0dc0491a621c3bc6fbe1d182"
+  dependencies:
+    hoek "4.x.x"
+
 touch@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/touch/-/touch-1.0.0.tgz#449cbe2dbae5a8c8038e30d71fa0ff464947c4de"
@@ -2214,9 +2266,9 @@ tsconfig@^5.0.2:
     strip-bom "^2.0.0"
     strip-json-comments "^2.0.0"
 
-tslint@^4.0.2:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-4.2.0.tgz#b9f5c5b871b784ab2f4809e704ade42d62f523ad"
+tslint@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-4.3.1.tgz#28f679c53ca4b273688bcb6fcf0dde7ff1bb2169"
   dependencies:
     babel-code-frame "^6.20.0"
     colors "^1.1.2"
@@ -2402,7 +2454,7 @@ xdg-basedir@^2.0.0:
   dependencies:
     os-homedir "^1.0.0"
 
-xtend@^4.0.0:
+xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 

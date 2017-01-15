@@ -2,7 +2,7 @@ import {Request, Response, NextFunction} from "express";
 import * as ExpressOAuthServer from "express-oauth-server";
 import {ExpressOAuthConfig} from "../libs/oauth/config";
 import {BaseRoute} from "./baseRoute";
-import {AuthedRequest} from "../interfaces/authedRequest";
+import {RequestAuthed} from "../interfaces/requestAuthed";
 
 export class OAuthRoute extends BaseRoute {
   private oauth: ExpressOAuthServer;
@@ -26,7 +26,7 @@ export class OAuthRoute extends BaseRoute {
     return this.oauth.authorize();
   }
 
-  public postToken(req: AuthedRequest, res: Response) {
+  public postToken(req: RequestAuthed, res: Response) {
     const {client_id, redirect_uri, response_type} = req.query;
     res.render("authorize", {
       username: req.user.username,

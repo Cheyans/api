@@ -1,28 +1,19 @@
 #!/usr/bin/env node
 
-/**
- * Load .env file if working outside of docker
- */
-
-if (process.env.NODE_ENV === "development" && process.argv.find((v) => v === "--no-docker")) {
-  // tslint:disable-next-line:no-var-requires
-  require("dotenv").config();
-}
+import {logger} from "./src/libs/logger";
+setupDevEnvIfNecessary();
 
 /**
  * Module dependencies.
  */
-
 import {App} from "./src/app";
 import {createServer} from "http";
-import {logger} from "./src/libs/logger";
 
 const app = new App().express;
 
 /**
  * Get port from environment and store in Express.
  */
-
 const port = parseInt(process.env.PORT, 10);
 app.set("port", port);
 const server = createServer(app);
@@ -30,7 +21,6 @@ const server = createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
@@ -71,4 +61,22 @@ function onListening() {
     ? "pipe " + addr
     : "port " + addr.port;
   logger.info("Listening on " + bind);
+}
+
+/**
+ * Runs through necessary dev env setup, this should always be called before the App is imported
+ */
+function setupDevEnvIfNecessary() {
+  if (process.env.NODE_ENV !== "development") {
+    return;
+  }
+
+  // Load in .env files if not in docker
+  if (process.argv.find((v) => v === "--no-docker")) {
+    // tslint:disable-next-line:no-var-requires
+    logger.info(`Loaded env vars: ${JSON.stringify(require("dotenv").config())}`);
+  }
+
+  // Catch and log UnhandledPromiseRejectionWarning
+  process.on("unhandledRejection", (e: any) => logger.error(e));
 }
