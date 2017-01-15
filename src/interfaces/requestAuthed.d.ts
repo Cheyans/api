@@ -1,6 +1,6 @@
-import {Claims} from "./claims";
+import {JwtClaims} from "./jwtClaims";
 import {RequestJsonApiParams} from "./requestJsonApiParams";
 
 export interface RequestAuthed extends RequestJsonApiParams {
-  user: Claims;
+  user: JwtClaims;
 }
