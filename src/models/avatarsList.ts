@@ -1,13 +1,13 @@
 import {Collection} from "bookshelf";
-import {Avatars} from "./avatars";
 import {BaseModel} from "./baseModel";
+import {Login} from "./login";
 
 export class AvatarsList extends BaseModel<AvatarsList> {
   public get tableName() {
     return "avatars_list";
   }
 
-  public avatars(): Collection<Avatars> {
-    return this.hasMany(Avatars, "idAvatar");
+  public users(): Collection<Login> {
+    return this.belongsToMany(Login, "avatars", "idUser", "idAvatar");
   }
 }

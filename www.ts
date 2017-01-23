@@ -76,7 +76,4 @@ function setupDevEnvIfNecessary() {
     // tslint:disable-next-line:no-var-requires
     logger.info(`Loaded env vars: ${JSON.stringify(require("dotenv").config())}`);
   }
-
-  // Catch and log UnhandledPromiseRejectionWarning
-  process.on("unhandledRejection", (e: any) => logger.error(e));
 }

@@ -2,6 +2,7 @@ import {JsonApiError} from "../../interfaces/jsonApiError";
 import {JsonApiErrorSource} from "../../interfaces/jsonApiErrorSource";
 
 export abstract class BaseError extends Error {
+  public type = "BaseError";
   public abstract status: number;
   public abstract title: string;
   constructor(public detail: string, public source?: JsonApiErrorSource) {

@@ -7,6 +7,7 @@ import {errorHandler} from "./libs/errors/handlers";
 import {OAuthRoute} from "./routes/oauth";
 import {AvatarsRoute} from "./routes/avatars";
 import {queryParser} from "./libs/jsonApi/queryParser";
+import {UsersRoute} from "./routes/users";
 
 export class App {
   public express: express.Application;
@@ -27,7 +28,10 @@ export class App {
 
   private registerMiddleware(): void {
     this.express.use(json());
-    this.express.use(urlencoded({extended: false}));
+    this.express.use(urlencoded({
+      type: ["application/json", "application/vnd.api+json"],
+      extended: false
+    }));
     this.express.use(requestLogger);
     this.express.use(queryParser);
   }
@@ -39,6 +43,7 @@ export class App {
   private registerRoutes(): void {
     this.express.use("/oauth", new OAuthRoute("oauth").router);
     this.express.use("/avatars", new AvatarsRoute("avatars").router);
+    this.express.use("/users", new UsersRoute("users").router);
   }
 
   private registerErrorMiddleware() {

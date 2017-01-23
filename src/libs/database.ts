@@ -1,6 +1,7 @@
 import * as Knex from "knex";
 import * as Bookshelf from "bookshelf";
 import * as jsonApiParams from "bookshelf-jsonapi-params";
+import {valueToBoolean} from "../utils/miscellaneous";
 
 export class Database {
   private static instance: Database;
@@ -13,7 +14,7 @@ export class Database {
   private constructor() {
     this.bookshelf = Bookshelf(Knex({
       client: "mysql",
-      debug: process.env.NODE_ENV === "development",
+      debug: process.env.NODE_ENV === "development" && valueToBoolean(process.env.DEBUG_QUERIES),
       connection: {
         host: process.env.DB_PORT_3306_TCP_ADDR,
         port: 3306,
@@ -32,5 +33,6 @@ export class Database {
         limit: 1000
       }
     });
+    this.bookshelf.plugin("visibility");
   }
 }

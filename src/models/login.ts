@@ -1,13 +1,15 @@
 import {Collection} from "bookshelf";
-import {bookshelf} from "../libs/database";
-import {Avatars} from "./avatars";
+import {BaseModel} from "./baseModel";
+import {AvatarsList} from "./avatarsList";
 
-export class Login extends bookshelf.Model<Login> {
+export class Login extends BaseModel<Login> {
+  public hidden = ["password", "ip", "steamid", "email"];
+
   get tableName() {
     return "login";
   }
 
-  public avatars(): Collection<Avatars> {
-    return this.hasMany(Avatars, "idUser");
+  public avatarsList(): Collection<AvatarsList> {
+    return this.belongsToMany(AvatarsList, "avatarsList", "idUser", "idAvatar");
   }
 }
